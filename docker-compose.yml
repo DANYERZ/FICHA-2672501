@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  paginaweb:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: mi_pagina_web
+    volumes:
+      - ./datadrive:/matiz
+    ports:
+      - 8552:80
+
+
+  db:
+    image: mariadb
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysecretpassword
+      - MYSQL_PASSWORD=myuserpassword
+      - MYSQL_DATABASE=mydb
+      - MYSQL_USER=myuser
+    ports:
+      - 3666:3306
+
+
+
+
+
+
+
+
+
+
+      
